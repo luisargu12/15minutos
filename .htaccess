@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /15minutos/
+
+# 1. Si el archivo existe físicamente en la carpeta 'public', servirlo directamente
+# Esto permite que /15minutos/assets/... funcione apuntando a /15minutos/public/assets/...
+RewriteCond %{DOCUMENT_ROOT}/15minutos/public/$1 -f
+RewriteRule ^(.*)$ public/$1 [L]
+
+# 2. Si es la raíz exacta, ir al entry point
+RewriteRule ^$ public/index.php [L]
+
+# 3. Si no es un archivo/directorio real, pasarlo al Router
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php?ruta=$1 [QSA,L]

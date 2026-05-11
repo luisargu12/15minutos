@@ -1,0 +1,15 @@
+/* =============================================================
+   style.css — Intercambio (Sistema de Gestión Documental)
+   Estilos complementarios al Bootstrap Institucional (VÍA)
+   ============================================================= */
+
+/* --- Cards con efecto hover (accesos rápidos) --- */
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .12) !important;
+}
